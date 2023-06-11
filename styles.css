@@ -1,17 +1,19 @@
 .square {
-    width: 20px;
-    height: 20px;
     border: solid black 2px;
+    border-radius: 1px;
     background-color: lightgray;
 }
 
-#container, .grid {
+#container{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    margin: auto;
+    width: 600px;
+    height: 600px;
 }
 
-#container {
-    width: 960px;
-    height: 960px;
-    margin: auto;
+.grid {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
 }
