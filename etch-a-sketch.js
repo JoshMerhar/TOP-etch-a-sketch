@@ -1,19 +1,17 @@
 const container = document.querySelector("#container");
 const containerWidth = getComputedStyle(document.querySelector("#container")).width;
-
-const grid = document.createElement("div");
-grid.classList.add("grid");
+const containerHeight = getComputedStyle(document.querySelector("#container")).height;
 
 const gridSize = prompt("Enter a positive number up to 100: ");
-const boxSize = +containerWidth.slice(0, 3) / +gridSize;
+const boxSize = +containerWidth.slice(0, (containerWidth.length - 2)) / +gridSize;
 
 function createGrid() {
     while ((gridSize < 1 || gridSize > 100) || isNaN(gridSize)) {
         gridSize = prompt("Try again! Between 0 and 100.");
     }
-    for (let i = 0; i < gridSize; i++) {
-        const row = grid.appendChild(document.createElement("div"));
-        for (let j = 0; j < gridSize; j++) {
+    for (let i = 1; i < gridSize; i++) {
+        const row = container.appendChild(document.createElement("div"));
+        for (let j = 1; j < gridSize; j++) {
             const square = document.createElement("div");
             square.classList.add("square");
             square.addEventListener("mouseenter", () => {
@@ -24,7 +22,6 @@ function createGrid() {
             row.appendChild(square);
         }
     }
-    container.appendChild(grid);
 }
 
 createGrid();
