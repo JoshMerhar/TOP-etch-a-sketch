@@ -1,10 +1,11 @@
 const container = document.querySelector("#container");
+const containerWidth = getComputedStyle(document.querySelector("#container")).width;
 
 const grid = document.createElement("div");
 grid.classList.add("grid");
 
 const gridSize = prompt("Enter a positive number up to 100: ");
-const boxSize = 600 / gridSize;
+const boxSize = +containerWidth.slice(0, 3) / +gridSize;
 
 function createGrid() {
     while ((gridSize < 1 || gridSize > 100) || isNaN(gridSize)) {
