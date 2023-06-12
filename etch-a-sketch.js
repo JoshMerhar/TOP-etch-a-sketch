@@ -2,6 +2,15 @@ const container = document.querySelector("#container");
 const containerWidth = getComputedStyle(document.querySelector("#container")).width;
 const containerHeight = getComputedStyle(document.querySelector("#container")).height;
 
+const customColor = document.querySelector("#choose-color");
+customColor.addEventListener("input", () => {
+    const setColor = document.querySelector("#custom-color").value;
+    const cells = document.querySelectorAll(".square");
+    cells.forEach(cell => cell.addEventListener("mouseenter", () => {
+        cell.style.backgroundColor = setColor;
+    }))
+});
+
 const gridSlider = document.querySelector("#grid-size");
 gridSlider.addEventListener("click", newGrid);
 gridSlider.addEventListener("click", showGridSize);
@@ -13,6 +22,7 @@ clearButton.addEventListener("click", clearGrid);
 clearButton.addEventListener("click", createGrid);
 
 createGrid();
+showGridSize();
 
 function createGrid() {
     for (let i = 0; i < gridSize; i++) {
@@ -23,7 +33,7 @@ function createGrid() {
             square.classList.add("square");
 
             square.addEventListener("mouseenter", () => {
-                square.style.backgroundColor = "darkslategray";
+                square.style.backgroundColor = document.querySelector("#custom-color").value;
             });
 
             square.style.width = squareSize + "px";
