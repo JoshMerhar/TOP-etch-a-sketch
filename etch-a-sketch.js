@@ -56,5 +56,5 @@ function newGrid() {
 
 function showGridSize() {
     const gridSliderValue = document.querySelector(`label[for="grid-size"]`);
-    gridSliderValue.textContent = `Grid size: ${gridSlider.value} x ${gridSlider.value}`;
+    gridSliderValue.textContent = `Grid: ${gridSlider.value} x ${gridSlider.value}`;
 }
