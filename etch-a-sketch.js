@@ -11,6 +11,14 @@ customColor.addEventListener("input", () => {
     }))
 });
 
+const randomColors = document.querySelector("#random-color");
+randomColors.addEventListener("click", () => {
+    const allSquares = document.querySelectorAll(".square");
+    allSquares.forEach(square => square.addEventListener("mouseenter", () => {
+        square.style.backgroundColor = randomColor();
+    }));
+});
+
 const gridSlider = document.querySelector("#grid-size");
 gridSlider.addEventListener("click", newGrid);
 gridSlider.addEventListener("click", showGridSize);
@@ -58,4 +66,11 @@ function newGrid() {
 function showGridSize() {
     const gridSliderValue = document.querySelector(`label[for="grid-size"]`);
     gridSliderValue.textContent = `Grid: ${gridSlider.value} x ${gridSlider.value}`;
+}
+
+function randomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
 }
