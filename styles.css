@@ -2,7 +2,7 @@
     box-sizing: border-box;
     background-color: lightgray;
     padding: 0;
-    border: dotted 1px lightblue;
+    border: dashed 1px lightblue;
 }
 
 #container{

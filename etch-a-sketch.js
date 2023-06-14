@@ -15,7 +15,7 @@ const gridSlider = document.querySelector("#grid-size");
 gridSlider.addEventListener("click", newGrid);
 gridSlider.addEventListener("click", showGridSize);
 
-let gridSize = 24;
+let gridSize = gridSlider.value;
 
 const clearButton = document.querySelector("#clear-grid");
 clearButton.addEventListener("click", clearGrid);
@@ -34,6 +34,7 @@ function createGrid() {
 
             square.addEventListener("mouseenter", () => {
                 square.style.backgroundColor = document.querySelector("#custom-color").value;
+                square.style.border = 0;
             });
 
             square.style.width = squareSize + "px";
